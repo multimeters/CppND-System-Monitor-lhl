@@ -32,6 +32,7 @@ vector<Process>& System::Processes() {
     int procs_count=LinuxParser::Pids().size();
     //vector<Process> sprocesses_;
     Process temp_processes_;
+    processes_.clear();
     for(int i=0;i<=(procs_count-1);i++)
     {
         int pid=LinuxParser::Pids()[i];
@@ -44,13 +45,13 @@ vector<Process>& System::Processes() {
         long seconds = LinuxParser::UpTime() - (starttime / Hertz);
         float cpu_util;
         if(seconds!=0){
-           float cpu_util=100 * ((process_total_time / Hertz) / seconds);
+           cpu_util=(((float)process_total_time / (float)Hertz) / (float)seconds);
         }
         else{cpu_util=0;}
         temp_processes_.setCpu(cpu_util);
         temp_processes_.setCommand(command_);
         temp_processes_.setRam(LinuxParser::Ram(pid));
-        temp_processes_.setUptime(LinuxParser::UpTime(pid));
+        temp_processes_.setUptime(LinuxParser::UpTime(pid)/Hertz);
         temp_processes_.setUser(LinuxParser::User(pid));
         processes_.push_back(temp_processes_);
     }

@@ -83,10 +83,8 @@ float LinuxParser::MemoryUtilization() {
       std::getline(filestream, line);
       std::istringstream  linestream2(line);
       linestream2 >> key >> mem_free;
-
-      return (mem_total-mem_free)/mem_total;
   }
-  
+  return (mem_total-mem_free)/mem_total;
   
   
 }
@@ -100,8 +98,8 @@ long LinuxParser::UpTime() {
     std::getline(stream, line);
     std::istringstream linestream(line);
     linestream >> uptime;
-    return uptime;
   }
+  return uptime;
 }
 
 // TODO: Read and return the number of jiffies for the system
@@ -152,7 +150,7 @@ long LinuxParser::ActiveJiffies(int pid) {
         }
         if (cnt == 14) {
           activeJiffies_+=long_value;
-          break;
+          return activeJiffies_;
         }
       }
   }
@@ -222,6 +220,7 @@ int LinuxParser::TotalProcesses() {
       }
     }
   }
+  return 0;
 }
 
 // TODO: Read and return the number of running processes
