@@ -16,13 +16,13 @@ class Process {
   std::string Ram();                       // TODO: See src/process.cpp
   long int UpTime();                       // TODO: See src/process.cpp
   bool operator<(Process const& a) const;  // TODO: See src/process.cpp
-  
-  void setPid(int p){Pid_=p;}
-  void setUser(string u){User_=u;}
-  void setCpu(float c){cpu_=c;}
-  void setRam(string r){Ram_=r;}
-  void setUptime(long u){UpTime_=u;}
-  void setCommand(string c){Command_=c;}
+
+  void setPid(int p) { Pid_ = p; }
+  void setUser(string u) { User_ = u; }
+  void setCpu(float c) { cpu_ = c; }
+  void setRam(string r) { Ram_ = r; }
+  void setUptime(long u) { UpTime_ = u; }
+  void setCommand(string c) { Command_ = c; }
   // TODO: Declare any necessary private members
  private:
   int Pid_;

@@ -4,7 +4,7 @@
 class Processor {
  public:
   float Utilization();  // TODO: See src/processor.cpp
-  void setUtil(float u){util_=u;}
+  void setUtil(float u) { util_ = u; }
   // TODO: Declare any necessary private members
  private:
   float util_;

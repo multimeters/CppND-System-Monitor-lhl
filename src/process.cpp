@@ -1,11 +1,12 @@
+#include "process.h"
+
 #include <unistd.h>
+
 #include <cctype>
+#include <sstream>
 #include <sstream>
 #include <string>
 #include <vector>
-
-#include "process.h"
-#include <sstream> 
 using std::string;
 using std::to_string;
 using std::vector;
@@ -30,28 +31,31 @@ long int Process::UpTime() { return UpTime_; }
 
 // TODO: Overload the "less than" comparison operator for Process objects
 // REMOVE: [[maybe_unused]] once you define the function
-bool Process::operator<(Process const& a) const { 
-    //compare by cpu utils
-    if(cpu_<a.cpu_){return true;}
-    else{return false;}
+bool Process::operator<(Process const& a) const {
+  // compare by cpu utils
+  if (cpu_ < a.cpu_) {
+    return true;
+  } else {
+    return false;
+  }
 
-    // compare by ram
-    
-    //float lnum;
-    // if(Ram_!="")
-    // {
-    //     std::istringstream liss(Ram_);
-    //     liss >> lnum;
-    // }
-    // else{lnum=0;}
-    // string str=a.Ram_;
-    // float rnum;
-    // if(str!=""){
-    //     std::istringstream riss(str);
-    //     riss >> rnum;
-    // }
-    // else{rnum=0;}
-    
-    // if(lnum<rnum) {return true;}
-    // else{return  false;}     
+  // compare by ram
+
+  // float lnum;
+  // if(Ram_!="")
+  // {
+  //     std::istringstream liss(Ram_);
+  //     liss >> lnum;
+  // }
+  // else{lnum=0;}
+  // string str=a.Ram_;
+  // float rnum;
+  // if(str!=""){
+  //     std::istringstream riss(str);
+  //     riss >> rnum;
+  // }
+  // else{rnum=0;}
+
+  // if(lnum<rnum) {return true;}
+  // else{return  false;}
 }
