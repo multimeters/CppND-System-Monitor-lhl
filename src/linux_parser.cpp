@@ -335,7 +335,7 @@ long LinuxParser::UpTime(int pid) {
       while (linestream >> long_value) {
         cnt++;
         if (cnt == 19) {
-          return LinuxParser::UpTime() - long_value;
+          return LinuxParser::UpTime() - long_value/sysconf(_SC_CLK_TCK);
         }
       }
     }

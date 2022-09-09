@@ -45,11 +45,10 @@ vector<Process>& System::Processes() {
 
     long process_total_time = LinuxParser::ActiveJiffies(pid);
     long starttime = LinuxParser::UpTime(pid);
-    int Hertz = 100;  // getconf CLK_TCK
-    long seconds = LinuxParser::UpTime() - (starttime / Hertz);
+    long seconds = LinuxParser::UpTime() - (starttime / sysconf(_SC_CLK_TCK));
     float cpu_util;
     if (seconds != 0) {
-      cpu_util = (((float)process_total_time / (float)Hertz) / (float)seconds);
+      cpu_util = (((float)process_total_time / (float)sysconf(_SC_CLK_TCK)) / (float)seconds);
     } else {
       cpu_util = 0;
     }
