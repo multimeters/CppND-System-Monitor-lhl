@@ -265,7 +265,7 @@ string LinuxParser::Ram(int pid) {
           std::stringstream buf;
           buf.precision(2);  //覆盖默认精度
           buf.setf(std::ios::fixed);
-          buf << (value / 1000);
+          buf << (value / 1024);
           return buf.str();
         }
       }
@@ -335,7 +335,7 @@ long LinuxParser::UpTime(int pid) {
       while (linestream >> long_value) {
         cnt++;
         if (cnt == 19) {
-          return long_value;
+          return LinuxParser::UpTime() - long_value;
         }
       }
     }

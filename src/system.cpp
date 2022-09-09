@@ -60,17 +60,12 @@ vector<Process>& System::Processes() {
     temp_processes_.setUser(LinuxParser::User(pid));
     processes_.push_back(temp_processes_);
   }
-  sort(processes_.begin(), processes_.end());
-  reverse(processes_.begin(), processes_.end());
+  sort(processes_.rbegin(), processes_.rend());
   return processes_;
-  // return processes_;
 }
 
 // TODO: Return the system's kernel identifier (string)
-std::string System::Kernel() {
-  return LinuxParser::Kernel();
-  ;
-}
+std::string System::Kernel() { return LinuxParser::Kernel(); }
 
 // TODO: Return the system's memory utilization
 float System::MemoryUtilization() { return LinuxParser::MemoryUtilization(); }
