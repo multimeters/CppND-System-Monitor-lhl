@@ -56,7 +56,7 @@ vector<Process>& System::Processes() {
     temp_processes_.setCpu(cpu_util);
     temp_processes_.setCommand(command_);
     temp_processes_.setRam(LinuxParser::Ram(pid));
-    temp_processes_.setUptime(LinuxParser::UpTime(pid) / Hertz);
+    temp_processes_.setUptime(LinuxParser::UpTime(pid));
     temp_processes_.setUser(LinuxParser::User(pid));
     processes_.push_back(temp_processes_);
   }
